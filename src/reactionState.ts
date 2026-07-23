@@ -14,11 +14,11 @@ export function replyMessage(verdict: Verdict, mentionedUserId: string): string 
   const mention = `<@${mentionedUserId}>`;
   switch (verdict) {
     case "approved":
-      return `${mention} Aprovado ✔️`;
+      return `${mention} Revisado e aprovado ✔️`;
     case "approved_with_comment":
-      return `${mention}, adicionei um comentário caso ache pertinente! De toda forma, já está aprovado✔️`;
+      return `${mention} Aprovado ✔️ Deixei um comentário no PR, mas é só sugestão — não bloqueia o merge.`;
     case "changes_requested":
-      return `${mention}, analisando seu PR encontramos alguns problemas que necessitam correção ou esclarecimento! Após resolver essas questões por favor me marque aqui de novo para que eu possa revisar novamente 🤝`;
+      return `${mention} Revisão feita — achados no PR. *Me marca aqui de novo quando ajustar* 🤝`;
   }
 }
 
