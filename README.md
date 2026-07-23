@@ -73,6 +73,10 @@ src/
 └── reactionState.ts       # templates de reply + convenção de reação (eyes/heavy_check_mark/speech_balloon)
 ```
 
+## Limitações conhecidas
+
+- **A reação `eyes` não é removida** ao concluir o review — a maioria dos MCPs de Slack ainda não expõe uma tool de remover reação. O bot só adiciona a reação terminal (`heavy_check_mark`/`speech_balloon`) ao lado; o `eyes` fica.
+
 ## Testes
 
 ```bash

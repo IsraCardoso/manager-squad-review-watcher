@@ -1,5 +1,5 @@
 import { test, expect } from "bun:test";
-import { terminalReaction, replyMessage, eyesRemovalNotice } from "./reactionState";
+import { terminalReaction, replyMessage } from "./reactionState";
 
 const USER = "U0EXAMPLE1ID";
 
@@ -16,8 +16,4 @@ test("approved_with_comment -> heavy_check_mark + comment message", () => {
 test("changes_requested -> speech_balloon + changes message", () => {
   expect(terminalReaction("changes_requested")).toBe("speech_balloon");
   expect(replyMessage("changes_requested", USER)).toContain("me marque aqui de novo");
-});
-
-test("removal notice warns about manual eyes removal (no slack_remove_reaction tool)", () => {
-  expect(eyesRemovalNotice()).toContain("manualmente");
 });

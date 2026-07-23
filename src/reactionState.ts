@@ -1,4 +1,4 @@
-import type { Verdict } from "./synthesizeVerdict";
+import type { Verdict } from "./types";
 
 export const START_REACTION = "eyes";
 
@@ -23,11 +23,8 @@ export function replyMessage(verdict: Verdict, mentionedUserId: string): string 
 }
 
 /**
- * The Slack MCP available today (69d2bb43…) has no remove-reaction tool
- * (KTD/Scope Boundaries: "slack_remove_reaction não existe no MCP hoje").
- * The watcher never claims to have removed `eyes` — it appends this notice
- * to the reply instead.
+ * Most Slack MCP servers have no remove-reaction tool today — the watcher
+ * never claims to have removed `eyes`, it just leaves it alongside the
+ * terminal reaction. This is a known, documented limitation (see README),
+ * not something surfaced inline in every reply.
  */
-export function eyesRemovalNotice(): string {
-  return "\n_(remova a reação 👀 manualmente — sem tool de remoção disponível ainda)_";
-}

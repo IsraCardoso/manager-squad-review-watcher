@@ -1,7 +1,7 @@
 import { mkdtempSync, writeFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import type { Verdict } from "./synthesizeVerdict";
+import type { Verdict } from "./types";
 import { defaultGhRunner, type GhRunner } from "./fetchPr";
 
 function reviewFlag(verdict: Verdict): "--approve" | "--request-changes" {

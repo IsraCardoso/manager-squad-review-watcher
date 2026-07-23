@@ -42,9 +42,9 @@ Rode este loop periodicamente (scheduled task recomendado — ver README). A cad
 
 ## 6. Responder e reagir no Slack
 
-- `slack_send_message` na thread com `replyMessage(verdict, mentionedUserId)` (`src/reactionState.ts`) — `mentionedUserId` é a pessoa que PEDIU o review (autor da mensagem-gatilho), não o dono do watcher — + `eyesRemovalNotice()` no fim.
+- `slack_send_message` na thread com `replyMessage(verdict, mentionedUserId)` (`src/reactionState.ts`) — `mentionedUserId` é a pessoa que PEDIU o review (autor da mensagem-gatilho), não o dono do watcher.
 - `slack_add_reaction(channelId, matchedTs, terminalReaction(verdict))`.
-- **Não** afirmar que o `eyes` foi removido — o MCP atual não tem essa tool (ver `eyesRemovalNotice`).
+- **Não** afirmar que o `eyes` foi removido — a maioria dos MCPs de Slack não tem essa tool ainda. O `eyes` fica ao lado da reação terminal; isso é uma limitação conhecida e documentada no README, não algo que precisa aparecer em toda mensagem.
 
 ## 7. Avançar o cursor
 
