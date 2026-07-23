@@ -7,6 +7,12 @@ description: Watcher de um canal Slack de code-review — detecta menção ao se
 
 Rode este loop periodicamente (scheduled task recomendado — ver README). A cada disparo:
 
+## 0. Checar janela de operação
+
+- `isWithinOperatingHours(config.operatingHours, new Date())` de `src/operatingHours.ts`.
+- Fora da janela (ou `operatingHours` ausente do `config.json` → sempre dentro): se fora, encerrar a rodada AGORA, sem ler o Slack, sem tocar o cursor, sem chamar `reviewCommand`. Zero efeito colateral, zero custo de token.
+- **Resiliência a computador desligado:** a janela só controla QUANDO processar, não PERDE mensagens. `readCursor`/`writeCursor` (passo 1) marcam o último ponto processado; se a máquina ligar às 9h com a janela configurada 08:00–18:00, a primeira rodada do dia já cai dentro da janela e processa, via `oldest: cursor`, tudo que chegou desde o cursor anterior — inclusive o que foi postado antes das 9h. Nada se perde, só processa mais tarde que o ideal.
+
 ## 1. Poll do canal
 
 - Ler `config.json` (channelId, reviewGroupSubteamId, squadMembers, reviewCommand).
