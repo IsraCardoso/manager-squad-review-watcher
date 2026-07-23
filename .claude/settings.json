@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__69d2bb43-7d77-43c1-b7ae-ff579bd610d6__slack_read_channel",
+      "mcp__69d2bb43-7d77-43c1-b7ae-ff579bd610d6__slack_read_thread",
+      "mcp__69d2bb43-7d77-43c1-b7ae-ff579bd610d6__slack_add_reaction",
+      "mcp__69d2bb43-7d77-43c1-b7ae-ff579bd610d6__slack_send_message",
+      "Bash(gh pr *)",
+      "Bash(bun test)",
+      "Bash(bun install)",
+      "Read(./**)",
+      "Write(./**)"
+    ]
+  }
+}

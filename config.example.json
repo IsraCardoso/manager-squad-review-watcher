@@ -1,0 +1,13 @@
+{
+  "channelId": "C0YOURCHANNEL",
+  "reviewGroupSubteamId": "SYOURUSERGROUP",
+  "reviewCommand": "/review",
+  "squadMembers": [
+    {
+      "name": "Seu Nome",
+      "slackUserId": "UYOURID",
+      "githubUser": "seu-usuario-github"
+    }
+  ],
+  "pollIntervalMinutes": 5
+}
