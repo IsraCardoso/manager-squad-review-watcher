@@ -36,10 +36,14 @@ Se algum desses faltar, o assistente vai travar tentando rodar o watcher — res
 
 5. **Qual comando/skill de review você já usa hoje?** (`/review`, um script próprio, uma skill do seu harness — qualquer coisa que, dado um PR, te diga se aprova ou pede mudanças). Esse é o `reviewCommand` do seu `config.json` — o watcher vai chamar ELE, sem saber como ele decide por dentro.
 
-## Depois de ter as 5 respostas
+6. **Em que horário o watcher deve rodar?**
+   - Padrão (recomendado): `08:00`–`18:00` — fora desse horário ele não reage nem revisa nada, só ignora a rodada (sem custo de token, sem barulho no Slack fora do expediente).
+   - Se quiser rodando o dia inteiro, responda "sempre" — remove a chave `operatingHours` do `config.json`.
+
+## Depois de ter as respostas
 
 1. `cp config.example.json config.json`
-2. Preencher `channelId`, `reviewGroupSubteamId`, `squadMembers[0].slackUserId`, `squadMembers[0].githubUser`, `reviewCommand` com as respostas acima.
+2. Preencher `channelId`, `reviewGroupSubteamId`, `squadMembers[0].slackUserId`, `squadMembers[0].githubUser`, `reviewCommand`, `operatingHours` com as respostas acima (ou remover `operatingHours` pra rodar 24h).
 3. `bun install`
 4. `gh auth status` — confirmar que está autenticado como você.
 5. Ler `SKILL.md` passo 4 — se seu `reviewCommand` não devolve nativamente `{verdict, findings}` (formato descrito lá), você precisa de um wrapper fino que traduza a saída dele pra esse formato. Isso é customização sua.

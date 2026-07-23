@@ -9,5 +9,6 @@
       "githubUser": "seu-usuario-github"
     }
   ],
-  "pollIntervalMinutes": 5
+  "pollIntervalMinutes": 5,
+  "operatingHours": { "start": "08:00", "end": "18:00" }
 }
